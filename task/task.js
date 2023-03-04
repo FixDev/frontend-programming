@@ -4,7 +4,33 @@
  * Object memiliki property: name, age, major.
  * Note: Ubah var menggunakan JavaScript Modern.
  */
-var users;
+let users = [
+  {
+    name: 'Muhammad Fikri',
+    age: 22,
+    major: 'Informatics',
+  },
+  {
+    name: 'Ferdy Sambo',
+    age: 50,
+    major: 'Information System',
+  },
+  {
+    name: 'Nurul Sinta',
+    age: 19,
+    major: 'Business',
+  },
+  {
+    name: 'Hana Najural',
+    age: 35,
+    major: 'Art',
+  },
+  {
+    name: 'Karsono',
+    age: 22,
+    major: 'Machine',
+  },
+];
 
 /**
  * TODO 2
@@ -12,7 +38,11 @@ var users;
  * Hint: Gunakan for/for-of.
  * Note: Ubah function menggunakan arrow function.
  */
-function all() {}
+const all = () => {
+  for (let i = 0; i < users.length; i++) {
+    console.table(users[i]);
+  }
+};
 
 /**
  * TODO 3
@@ -20,7 +50,9 @@ function all() {}
  * Hint: Gunakan method push.
  * Note: Ubah function menggunakan arrow function.
  */
-function store(user) {}
+const store = (user) => {
+  users.push(user);
+};
 
 /**
  * TODO 4.
@@ -28,7 +60,9 @@ function store(user) {}
  * Hint: re-assign array.
  * Note: Ubah function menggunakan arrow function.
  */
-function update(index, user) {}
+const update = (index, user) => {
+  users[index] = user;
+};
 
 /**
  * TODO 5.
@@ -36,7 +70,9 @@ function update(index, user) {}
  * Hint: Gunakan method splice.
  * Note: Ubah function menggunakan arrow function.
  */
-function destroy(index) {}
+const destroy = (index) => {
+  users.splice(index, 1);
+};
 
 /**
  * Function main.
@@ -48,38 +84,44 @@ const main = () => {
   /**
    * Test function index
    */
-  console.log("# Get All Users");
+  console.log('# Get All Users');
   all();
 
   /**
    * Test function store
    */
-  console.log("# Add New User: Sabiq");
+  console.log('# Add New User: Sabiq');
   const newUser = {
-    name: "Sabiq",
+    name: 'Sabiq',
     age: 20,
-    major: "Informatics",
+    major: 'Informatics',
   };
   store(newUser);
 
   /**
    * Test function update
    */
-  console.log("# Edit User: Isfa");
+  console.log('# Edit User: Isfa');
   const editedIndex = 1;
   const editedUser = {
-    name: "Isfhani Ghiyath",
+    name: 'Isfhani Ghiyath',
     age: 23,
-    major: "English",
+    major: 'English',
   };
   update(editedIndex, editedUser);
 
   /**
    * Test function destroy
    */
-  console.log("# Delete User: Nurul");
+  console.log('# Delete User: Nurul');
   const deletedIndex = 2;
   destroy(deletedIndex);
+
+  /**
+   * Get Again After Updated
+   */
+  console.log('# Get All Users Again');
+  all();
 };
 
 main();

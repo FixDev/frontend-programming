@@ -3,12 +3,23 @@
  * Import variable users dari file data/users.js
  */
 // CODE HERE
-
+import users from '../data/users.js';
 /**
  * SARAN TODO3 - TODO5.
  * Tulis dulu solusi tanpa penggunaan promise.
  * Setelah itu refactor dengan menambahkan promise.
  */
+/**
+ * 
+ * @param {integer} ms 
+ * @returns {Promise}
+ */
+const sleep = (ms) =>
+  new Promise((resolve) =>
+    setTimeout(() => {
+      resolve();
+    }, ms)
+  );
 
 /**
  * TODO 3.
@@ -18,7 +29,15 @@
  * - Gunakan method map untuk format user.
  * - Gunakan promise untuk handle asynchronous.
  */
-const formatUser = (title) => {};
+export const formatUser = async (title) => {
+  await sleep(3000);
+  return users.map((value) => {
+    return {
+      ...value,
+      name: `${title} ${value.name}`,
+    };
+  });
+};
 
 /**
  * TODO 4.
@@ -28,7 +47,10 @@ const formatUser = (title) => {};
  * - Gunakan method find untuk mencari 1 user.
  * - Gunakan promise untuk handle asynchronous.
  */
-const findByName = (name) => {};
+export const findByName = async (name) => {
+  await sleep(3000);
+  return users.find((value) => value.name === name);
+};
 
 /**
  * SARAN TODO3 - TODO5.
@@ -44,7 +66,10 @@ const findByName = (name) => {};
  * - Gunakan method filter untuk mencari semua user.
  * - Gunakan promise untuk handle asynchronous.
  */
-const filterByMajor = (major) => {};
+export const filterByMajor = async (major) => {
+  await sleep(3000);
+  return users.filter((value) => value.major === major);
+};
 
 /**
  * TODO 6.
